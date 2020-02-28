@@ -38,7 +38,7 @@ Function Get-LoggedOnUsers {
         }
     } catch {
         #make the distinction between no results vs. query failure
-        if($_.exception.message -ne 'No User exists for *'){
+        if($_.exception.message -eq 'No User exists for *'){
            #Do nothing?
 
         } else {

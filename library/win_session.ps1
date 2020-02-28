@@ -27,7 +27,7 @@ $result = @{
 if ($state -eq "logout") {
     try {
         ## Find all sessions matching the specified username
-        $sessions = quser | Where-Object {$_ -match $user} -ErrorAction SilentlyContinue
+        $sessions = quser | Where-Object {$_ -match $user}
         ## Parse the session IDs from the output
         $sessionIds = ($sessions -split ' +')[2]
         ## Loop through each session ID and pass each to the logoff command
@@ -44,7 +44,7 @@ if ($state -eq "logout") {
 
     } catch {
         #make the distinction between no results vs. query failure
-        if($_.exception.message -ne 'No User exists for *'){
+        if($_.exception.message -eq 'No User exists for *'){
             if ($failifempty) {
                 Write-Error $_.exception.message
             }
@@ -62,7 +62,7 @@ if ($state -eq "locked") {
             $result.changed = $true
         }
     } catch {
-        if($_.exception.message -ne 'No User exists for *'){
+        if($_.exception.message -eq 'No User exists for *'){
             if ($failifempty) {
                 Write-Error $_.exception.message
             }
