@@ -19,11 +19,20 @@ None
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+    - hosts: windows
       roles:
          - { role: guruevi.win_sessions }
+      tasks:
+         - win_session
+           # Lock the screen for specific user, fail the task if user is not present
+           state: locked
+           user: guruevi
+           # Defaults to false, fail the task if the user is not logged in
+           failonempty: true 
+         - win_session
+           # Logout the specific user, don't fail if the user is not logged in
+           state: logout
+           user: guruevi 
 
 License
 -------

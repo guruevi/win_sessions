@@ -1,6 +1,3 @@
 ---
 # tasks file for guruevi.win_sessions
-
-- win_session:
-
 - win_session_facts:
