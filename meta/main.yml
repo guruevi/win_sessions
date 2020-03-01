@@ -53,7 +53,7 @@ galaxy_info:
     - all
   - name: Windows
     versions:
-    - 10
+    - all
   - name: GenericUnix
     versions:
     - all
