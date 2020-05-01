@@ -1,0 +1,7 @@
+#!/bin/bash
+output=`who | awk '{ print "{ \"UserName\": \"" $1 "\", \"SessionName\": \"" $2 "\", \"LogonTime\": \"" $3 " " $4 "\" }," }' | awk '{printf "%s",$0} END {print ""}'`
+echo "{"
+echo "\"changed\": \"false\"",
+echo "\"ansible_facts\": {"
+echo "\"user_sessions\": [$output" | sed 's/.$/]/'
+echo "}}"

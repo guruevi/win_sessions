@@ -1,3 +1,9 @@
 ---
 # tasks file for guruevi.win_sessions
-- win_session_facts:
+- name: Collect Windows Session Facts
+  win_session_facts:
+  when: ansible_os_family == "Windows"
+
+- name: Collect Unix Session Facts
+  unix_session_facts:
+  when: ansible_os_family != "Windows" 
