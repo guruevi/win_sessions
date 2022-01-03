@@ -6,4 +6,8 @@
 
 - name: Collect Unix Session Facts
   unix_session_facts:
+<<<<<<< HEAD
   when: ansible_os_family != "Windows" 
+=======
+  when: ansible_os_family != "Windows"
+>>>>>>> faf7df9a310e1a1d2547d1e08e55e705e654c163

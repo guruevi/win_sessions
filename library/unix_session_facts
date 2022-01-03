@@ -3,6 +3,11 @@ output=`who | awk '{ print "{ \"UserName\": \"" $1 "\", \"SessionName\": \"" $2 
 echo "{"
 echo "\"changed\": \"false\"",
 echo "\"ansible_facts\": {"
+<<<<<<< HEAD
 echo "\"user_sessions\": ["
 echo "$output" | sed 's/.$//'
 echo "]}}"
+=======
+echo "\"user_sessions\": [$output" | sed 's/.$/]/'
+echo "}}"
+>>>>>>> faf7df9a310e1a1d2547d1e08e55e705e654c163
